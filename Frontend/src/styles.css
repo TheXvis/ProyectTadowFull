@@ -1,0 +1,174 @@
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #222;
+}
+
+body {
+  background-image: url('../public/SL-100420-36140-05.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #f0f0f0; /* Color de fondo de respaldo */
+}
+
+body {
+    background-color: #eee;
+    font-size: 20px;
+}
+
+img {
+    max-width: 600px;
+    height: 600px;
+}
+.mboton {
+  padding: 4px 10px;
+    background-color: #536f54;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 4px;
+
+}
+
+.boton {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 4px;
+  }
+.boton:hover {
+    background-color: #45a049;
+  }
+.boton:active {
+    background-color: #3e8e41;
+  }
+
+.boton2{
+    padding: 10px 20px;
+    background-color: rgba(255, 0, 0, 0.699);
+    color: white;
+    border-left: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+.boton2:hover {
+    background-color: rgba(204, 8, 8, 0.699);
+  }
+.boton2:active {
+    background-color: rgba(161, 2, 2, 0.699)
+  }
+  
+
+  .boton3{
+    padding: 10px 20px;
+    background-color: rgba(243, 184, 36, 0.699);
+    color: white;
+    border-left: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+.boton3:hover {
+    background-color: rgba(204, 8, 8, 0.699);
+  }
+.boton3:active {
+    background-color: rgba(161, 2, 2, 0.699)
+  }
+.imagenlista{
+    width: 100px;
+    height: 100px;
+}
+
+.aceptados{
+    position: absolute;
+    top: 50px;
+    margin-left: 700px;
+    overflow: auto;
+    max-height: 700px;
+    padding: 30px;
+    max-width: 400px;
+}
+
+.rechazados{
+    position: absolute;
+    top: 50px;
+    margin-left: 1200px;
+    overflow: auto;
+    max-height: 700px;
+    padding: 30px;
+    max-width: 400px;
+}
+
+.content-container{
+  margin-top: 10px;
+
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-message {
+  background-color: #007bff;
+  color: white;
+  text-align: right;
+  padding: 8px;
+  margin: 4px;
+  border-radius: 5px;
+}
+
+.dog-message {
+  background-color: #e0e0e0;
+  color: #000;
+  display: inline-block;
+
+  text-align: left;
+  padding: 8px;
+  margin: 4px;
+  border-radius: 5px;
+}
+
+
+.image-navbar {
+  max-width: 250px; 
+  max-height: 70px; 
+}
+
+.navbar {
+  height: 70px; 
+  background-color: #fc1c2c;
+  display: flex;
+  align-items: center; 
+  
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  
+  
+}
+
+.chat-input{
+
+  height: 50px;
+}
+
+@font-face {
+  font-family: 'Ftitle'; 
+  src: url('/Fonts/DeliciousHandrawn-Regular.ttf') format('truetype'); 
+}
+
+h1 {
+  font-family: 'Ftitle', sans-serif;
+  font-size: 40px;
+}
+
+h2 {
+  font-family: 'Ftitle', sans-serif;
+  font-size: 30px;
+}
