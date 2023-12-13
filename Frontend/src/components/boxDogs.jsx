@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const BoxDogs = () => {
   const { id } = useParams();
@@ -57,6 +58,23 @@ useEffect(() => {
   }
 }, [id, perros, interactionsLoaded]);
 
+const checkMatch = async (id1, id2) => {
+  try {
+    const response = await axios.get(`http://127.0.0.1:8000/api/match/${id1}/${id2}`);
+    if (response.data.message === 'hay match') {
+      Swal.fire({
+        title: '¡Match encontrado!',
+        text: 'Has hecho match con ' + response.data.perro.nombre,
+        icon: 'success',
+      });
+    } else {
+      console.log('No hay match');
+    }
+  } catch (error) {
+    console.error('Hubo un error al verificar el match', error);
+  }
+};
+
 const acceptDog = async () => {
   try {
     await axios.post('http://127.0.0.1:8000/api/preferencias/' + id, {
@@ -66,6 +84,7 @@ const acceptDog = async () => {
     setAcceptedDogs(prevAcceptedDogs => [...prevAcceptedDogs, perros[index]]);
     setPerros(perros.filter((_, i) => i !== index));
     setIndex(0);
+    checkMatch(id, perros[index].id);
   } catch (error) {
     console.error('Hubo un error al aceptar el perro', error);
   }
@@ -135,16 +154,15 @@ const removeRejectedDog = async (index) => {
     }
   };
 
-
   return (
-    <div>
+    <div className='perrosbox'>
       {perros.length > 0 ? (
         <div>
           <h2>{perros[index].nombre}</h2>
           <p>Edad: {perros[index].edad}</p>
           <p>Raza: {perros[index].raza}</p>
           <p>Descripción: {perros[index].descripcion}</p>
-          <img src={perros[index].url} alt={perros[index].nombre} />
+          <img class="image" src={perros[index].url} alt={perros[index].nombre} />
           <button className='boton' onClick={acceptDog}>Aceptar</button>
           <button className='boton2' onClick={rejectDog}>Rechazar</button>
         </div>
@@ -153,7 +171,7 @@ const removeRejectedDog = async (index) => {
       )}
         <button className="mboton" onClick={toggleAcceptedDogs}>{showAcceptedDogs ? 'Ocultar Aceptados' : 'Mostrar Aceptados'}</button>
         {showAcceptedDogs && (
-        <div className='aceptados'>
+        <div className='aceptados' style={{marginTop:"89px"}}>
         <h2>Perros Aceptados:</h2>
         {acceptedDogs.map((perro, i) => (
             <div key={i}>
@@ -161,7 +179,7 @@ const removeRejectedDog = async (index) => {
             <p>Edad: {perro.edad}</p>
             <p>Raza: {perro.raza}</p>
             <p>Descripción: {perro.descripcion}</p>
-            <img src={perro.url} alt={perro.nombre} />
+            <img class="image" src={perro.url} alt={perro.nombre} />
             <button className='boton2' onClick={() => removeAcceptedDog(i) }>Eliminar</button>
             <button className='boton' onClick={() => cambiarEstado(i, true)}>Mover a rechazados</button>
             </div>
@@ -171,7 +189,7 @@ const removeRejectedDog = async (index) => {
 
         <button className="mboton" onClick={toggleRejectedDogs}>{showRejectedDogs ? 'Ocultar Rechazados' : 'Mostrar Rechazados'}</button>
         {showRejectedDogs && (
-        <div className='rechazados'>
+        <div className='rechazados' style={{marginTop:"89px"}}>
         <h2>Perros Rechazados:</h2>
         {rejectedDogs.map((perro, i) => (
             <div key={i}>
@@ -179,7 +197,7 @@ const removeRejectedDog = async (index) => {
             <p>Edad: {perro.edad}</p>
             <p>Raza: {perro.raza}</p>
             <p>Descripción: {perro.descripcion}</p>
-            <img src={perro.url} alt={perro.nombre} />
+            <img class="image" src={perro.url} alt={perro.nombre} />
             <button className='boton2' onClick={() => removeRejectedDog(i)}>Eliminar</button>
             <button className='boton' onClick={() => cambiarEstado(i, false)}>Mover a aceptados</button>
             </div>

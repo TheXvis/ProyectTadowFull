@@ -19,20 +19,24 @@ const ListaPerros = () => {
     }, []);
 
     return (
-        <div className="lista-perros">
-            <h1>Lista de Perros</h1>
-            {perros.map(perro => (
-                <div key={perro.id}>
-                    <h2>{perro.nombre}</h2>
-                    <p>Edad: {perro.edad}</p>
-                    <p>Raza: {perro.raza}</p>
-                    <p>Descripción: {perro.descripcion}</p>
-                    <img src={perro.url } alt={perro.nombre}/>
-                    <Link to={`/boxDogs/${perro.id}`}>
-                        <button className='boton'>Seleccionar</button>
-                    </Link>
-                </div>
-            ))}
+        <div className="container">
+            <h1 className="text-center my-4">Lista de Perros</h1>
+            <div className="row">
+                {perros.map(perro => (
+                    <div className="col-md-4 mb-4" key={perro.id}>
+                        <div className="card">
+                            <img src={perro.url} className="card-img-top" alt={perro.nombre}/>
+                            <div className="card-body">
+                                <h5 className="card-title">{perro.nombre}</h5>
+                                <p className="card-text">Edad: {perro.edad}</p>
+                                <p className="card-text">Raza: {perro.raza}</p>
+                                <p className="card-text">Descripción: {perro.descripcion}</p>
+                                <Link to={`/boxDogs/${perro.id}`} className="btn btn-primary">Seleccionar</Link>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };

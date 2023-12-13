@@ -84,23 +84,29 @@ img {
 }
 
 .aceptados{
+    background-color: #d4edda;
     position: absolute;
     top: 50px;
-    margin-left: 700px;
+    margin-left: 630px;
+    border: 1px solid #c3e6cb;
     overflow: auto;
-    max-height: 700px;
+    max-height: 830px;
     padding: 30px;
-    max-width: 400px;
+    max-width: 600px;
+    border-radius: 5px;
 }
 
 .rechazados{
     position: absolute;
     top: 50px;
-    margin-left: 1200px;
+    margin-left: 1250px;
     overflow: auto;
-    max-height: 700px;
+    max-height: 830px;
     padding: 30px;
-    max-width: 400px;
+    max-width: 600px;
+    border-radius:5px;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
 }
 
 .content-container{
@@ -171,4 +177,68 @@ h1 {
 h2 {
   font-family: 'Ftitle', sans-serif;
   font-size: 30px;
+}
+
+.perrosbox {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  max-width: 620px;
+  
+}
+
+.image {
+  width: 550px;
+  height: 500px;
+  object-fit: cover;
+}
+
+.formcontainer {
+  display: flex;
+  justify-content: center;
+}
+
+.formstyle{
+  background-color: #eee;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 10px #000;
+}
+
+
+.botoncrear:hover {
+  background-color: #45a049;
+}
+.botoncrear:active {
+  background-color: #3e8e41;
+}
+
+.registroperro {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.inputs {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  
+}
+
+.title{
+  display: flex;
+  text-align: center;
+}
+.form-background {
+  background-color: #f2f2f2; /* Color de fondo */
+  padding: 20px; /* Espaciado interno */
+  border-radius: 10px; /* Bordes redondeados */
+  margin-top: -50px;
+
 }
